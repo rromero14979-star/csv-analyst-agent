@@ -1,0 +1,47 @@
+config,id,group,question,expected_route,route_actual,correct,answer,is_graph,fallback,exec_ok,attempts,first_try_ok,hallucinated,latency_s,n_steps,trace,error
+b1,1,numeric,What is the total revenue?,numeric,none,True,"The total revenue is 1,730,873.27.",False,False,True,0,True,False,6.07,3,codegen > execute > answer,
+b1,2,numeric,Which region had the highest total revenue in 2024?,numeric,none,True,The North region had the highest total revenue in 2024.,False,False,True,0,True,False,3.99,3,codegen > execute > answer,
+b1,3,numeric,What is the average unit price of Laptops?,numeric,none,True,The average unit price of Laptops is approximately 948.77.,False,False,True,0,True,False,3.45,3,codegen > execute > answer,
+b1,4,numeric,How many orders were placed in 2023?,numeric,none,True,946 orders were placed in 2023.,False,False,True,0,True,False,3.49,3,codegen > execute > answer,
+b1,5,numeric,Which category has the highest average discount?,numeric,none,True,Electronics has the highest average discount.,False,False,True,0,True,False,3.25,3,codegen > execute > answer,
+b1,6,numeric,How many units of Chair were sold in total?,numeric,none,True,A total of 826 units of Chair were sold.,False,False,True,0,True,False,3.45,3,codegen > execute > answer,
+b1,7,numeric,What is the average revenue per order for Corporate customers?,numeric,none,True,The average revenue per order for Corporate customers is approximately 893.80.,False,False,True,0,True,False,3.51,3,codegen > execute > answer,
+b1,8,numeric,Which month of 2024 had the highest total revenue?,numeric,none,True,July 2024 had the highest total revenue.,False,False,True,0,True,False,3.58,3,codegen > execute > answer,
+b1,9,numeric,"Among orders with a recorded discount, what percentage had a discount of at least 20%?",numeric,none,True,Approximately 30.52% of orders with a recorded discount had a discount of at least 20%.,False,False,True,0,True,False,4.03,3,codegen > execute > answer,
+b1,10,numeric,How much more revenue was made in 2024 than in 2023?,numeric,none,True,"The revenue in 2024 was $161,721.13 more than in 2023.",False,False,True,0,True,False,3.87,3,codegen > execute > answer,
+b1,11,numeric,What is the median revenue per order?,numeric,none,True,The median revenue per order is 481.14.,False,False,True,0,True,False,3.2,3,codegen > execute > answer,
+b1,12,numeric,Which product has the most orders?,numeric,none,True,The product with the most orders is Laptop.,False,False,True,0,True,False,3.02,3,codegen > execute > answer,
+b1,13,tricky,What is the average discount?,numeric,none,True,The average discount is approximately 0.118.,False,False,True,0,True,False,3.64,3,codegen > execute > answer,
+b1,14,tricky,How much revenue was made in the first quarter of 2024?,numeric,none,True,"The revenue made in the first quarter of 2024 was 230,572.01.",False,False,True,0,True,False,3.58,3,codegen > execute > answer,
+b1,15,tricky,What was the total revenue of Small Business customers in the West region?,numeric,none,True,"The total revenue of Small Business customers in the West region was 79,006.99.",False,False,True,0,True,False,3.49,3,codegen > execute > answer,
+b1,16,chart,Show a bar chart of total revenue by region.,chart,none,False,"Execution failed: CodeRejected: Imports are not allowed: pd, np and plt are already available.",False,False,False,1,False,False,1.07,2,codegen > execute,
+b1,17,chart,Plot monthly revenue as a line chart.,chart,none,False,"A line chart plotting monthly revenue from January 2023 to December 2024 would show fluctuations with peaks around July 2024 (118,966.91) and May 2024 (94,189.06), and lower points around February 2023 (47,416.32) and June 2024 (58,617.95). Overall, revenue trends upward with some variability month to month.",False,False,True,0,True,False,4.65,3,codegen > execute > answer,
+b1,18,chart,Show the number of orders by category as a bar chart.,chart,none,False,"Execution failed: CodeRejected: Imports are not allowed: pd, np and plt are already available.",False,False,False,1,False,False,1.22,2,codegen > execute,
+b1,19,chart,Plot a histogram of order revenue.,chart,none,False,"Execution failed: CodeRejected: Imports are not allowed: pd, np and plt are already available.",False,False,False,1,False,False,1.39,2,codegen > execute,
+b1,20,chart,Chart the average discount by customer segment.,chart,none,False,"The average discount by customer segment is:
+- Consumer: 0.1127
+- Corporate: 0.1222
+- Small Business: 0.1234",False,False,True,0,True,False,4.04,3,codegen > execute > answer,
+b1,21,concept,What does the Discount column mean?,concept,none,True,"The Discount column represents the discount rate or percentage applied, shown here as approximately 0.118 (11.8%).",False,False,True,0,True,False,3.52,3,codegen > execute > answer,
+b1,22,concept,How is Revenue calculated?,concept,none,False,Revenue is not calculated based on the provided information.,False,False,True,0,True,False,4.65,3,codegen > execute > answer,
+b1,23,concept,What does a missing value in Customer Segment mean?,concept,none,False,A missing value in Customer Segment means the customer segment information was not recorded or is unavailable for that order.,False,False,True,0,True,False,3.55,3,codegen > execute > answer,
+b1,24,concept,Which column uniquely identifies each order?,concept,none,True,Order ID uniquely identifies each order.,False,False,True,0,True,False,3.52,3,codegen > execute > answer,
+b1,25,external,What is a typical gross margin for retail furniture businesses?,external,none,False,A typical gross margin for retail furniture businesses is approximately 88.2%.,False,False,True,0,True,False,5.39,3,codegen > execute > answer,
+b1,26,external,What is the current inflation rate in the United States?,external,none,False,The current inflation rate in the United States is not available (nan).,False,False,True,0,True,False,3.15,3,codegen > execute > answer,
+b1,27,external,What is a typical e-commerce conversion rate?,external,none,False,A typical e-commerce conversion rate is approximately 11.8%.,False,False,True,0,True,False,3.76,3,codegen > execute > answer,
+b1,28,decline,Write me a poem about summer.,out_of_scope,none,False,"Summer's golden rays ignite the sky,
+Warm breezes whisper as the days drift by.
+Fields of green and oceans blue,
+Nature's canvas, vibrant hue.
+
+Children's laughter, ice cream's sweet,
+Barefoot dances on sunlit street.
+Longer days and starry nights,
+Fireflies' glow and soft moonlight.
+
+Summer's embrace, a joyful tune,
+Beneath the sun and silver moon.
+Memories made in warmth and light,
+A season's song, pure delight.",False,False,True,0,True,False,5.27,3,codegen > execute > answer,
+b1,29,decline,Delete all rows where Region is North.,out_of_scope,none,False,"All rows with Region ""North"" have been deleted; no rows with Region ""North"" remain in the table.",False,False,True,0,True,False,3.39,3,codegen > execute > answer,
+b1,30,decline,What is the average profit margin by product?,numeric,none,False,Execution failed: KeyError: 'Column not found: Profit Margin',False,False,False,1,False,False,2.65,2,codegen > execute,

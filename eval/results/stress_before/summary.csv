@@ -1,0 +1,13 @@
+variant,description,loaded,correct,n,load_note
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,2,5,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str"
+european,"';' separator and decimal comma (1234,56)",False,0,5,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+"
+headers,"Renamed, lowercase/uppercase headers with spaces (' sales_usd ', 'PROFIT', 'disc.')",True,5,5,"21 columns; order_date=datetime64[us], sales_usd=float64, disc.=float64, PROFIT=float64"
+missing,"8% empty cells in Sales, Profit, Discount, Region plus 2% 'N/A' in Sales",True,5,5,"21 columns; Order Date=datetime64[us], Sales=float64, Discount=float64, Profit=float64"
+mixed_dates,Order Date mixes 2017-11-08 and 11/08/2017,True,5,5,"21 columns; Order Date=datetime64[us], Sales=float64, Discount=float64, Profit=float64"
+original,Unchanged file,True,5,5,"21 columns; Order Date=datetime64[us], Sales=float64, Discount=float64, Profit=float64"
+semicolon,';' as separator (Excel in Spanish/European locales),False,0,5,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+"
+title_rows,Three report lines above the header row,False,0,5,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+"
+trailing_column,"Every line ends with ',' (an empty extra column, common in Excel exports)",True,5,5,"22 columns; Order Date=datetime64[us], Sales=float64, Discount=float64, Profit=float64"

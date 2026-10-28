@@ -1,0 +1,22 @@
+id,group,question,expected_route,expected_type,expected_value,expected_text,expected_columns,expected_keywords
+1,numeric,How many transactions are there?,numeric,number,10000,,,
+2,numeric,"What is the sum of Total Spent, ignoring empty, ERROR and UNKNOWN values?",numeric,number,84763.5,,,
+3,numeric,"Which item appears in the most transactions, ignoring empty, ERROR and UNKNOWN values?",numeric,text,,Juice,,
+4,numeric,"What is the average quantity per transaction, ignoring empty, ERROR and UNKNOWN values?",numeric,number,3.0285,,,
+5,numeric,"Which payment method is used most often, ignoring empty, ERROR and UNKNOWN values?",numeric,text,,Digital Wallet,,
+6,numeric,"What is the total quantity of Coffee sold, ignoring empty, ERROR and UNKNOWN values?",numeric,number,3368,,,
+7,numeric,"What is the average Total Spent of In-store transactions, ignoring empty, ERROR and UNKNOWN values?",numeric,number,9.0296,,,
+8,numeric,"Which month had the highest sum of Total Spent, ignoring empty, ERROR and UNKNOWN values?",numeric,text,,June,,
+9,tricky,"How many transactions have an invalid Total Spent value (empty, ERROR or UNKNOWN)?",numeric,number,502,,,
+10,tricky,"What percentage of transactions have a missing or invalid Location (empty, ERROR or UNKNOWN)?",numeric,number,39.61,,,
+11,tricky,"Recompute Total Spent as Quantity times Price Per Unit, ignoring empty, ERROR and UNKNOWN values. What is the sum of the recomputed values?",numeric,number,80478.5,,,
+12,tricky,"What is the most common price per unit of a Smoothie, ignoring empty, ERROR and UNKNOWN values?",numeric,number,4.0,,,
+13,chart,Show a bar chart of the number of transactions per item.,chart,chart,,,Item,
+14,chart,"Plot the monthly sum of Total Spent as a line chart, ignoring empty, ERROR and UNKNOWN values.",chart,chart,,,Transaction Date|Total Spent,
+15,chart,Show a bar chart of the number of transactions by payment method.,chart,chart,,,Payment Method,
+16,concept,What does the Location column mean?,concept,keywords,,,,in-store|takeaway|where
+17,concept,What does the Price Per Unit column mean?,concept,keywords,,,,price|unit|item
+18,external,What is the average price of a cup of coffee in the United States?,external,web,,,,
+19,decline,Write me a poem about coffee.,out_of_scope,decline,,,,
+20,decline,Replace all ERROR values with 0 in the file.,out_of_scope,decline,,,,
+21,decline,What is the average age of the customers?,numeric,decline,,,,

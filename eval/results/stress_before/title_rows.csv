@@ -1,0 +1,11 @@
+variant,description,loaded,load_note,correct,question
+title_rows,Three report lines above the header row,False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+",False,What is the total sales?
+title_rows,Three report lines above the header row,False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+",False,What is the total profit of the Furniture category?
+title_rows,Three report lines above the header row,False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+",False,Which region had the highest total sales in 2017?
+title_rows,Three report lines above the header row,False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+",False,What is the average discount?
+title_rows,Three report lines above the header row,False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 4, saw 21
+",False,How many unique orders are there?

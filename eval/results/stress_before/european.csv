@@ -1,0 +1,11 @@
+variant,description,loaded,load_note,correct,question
+european,"';' separator and decimal comma (1234,56)",False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+",False,What is the total sales?
+european,"';' separator and decimal comma (1234,56)",False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+",False,What is the total profit of the Furniture category?
+european,"';' separator and decimal comma (1234,56)",False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+",False,Which region had the highest total sales in 2017?
+european,"';' separator and decimal comma (1234,56)",False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+",False,What is the average discount?
+european,"';' separator and decimal comma (1234,56)",False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 4 fields in line 3, saw 5
+",False,How many unique orders are there?

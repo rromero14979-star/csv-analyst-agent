@@ -1,0 +1,31 @@
+id,group,question,expected_route,expected_type,expected_value,expected_text,expected_columns,expected_keywords
+1,numeric,What is the total revenue?,numeric,number,1730873.27,,,
+2,numeric,Which region had the highest total revenue in 2024?,numeric,text,,North,,
+3,numeric,What is the average unit price of Laptops?,numeric,number,948.77,,,
+4,numeric,How many orders were placed in 2023?,numeric,number,946,,,
+5,numeric,Which category has the highest average discount?,numeric,text,,Electronics,,
+6,numeric,How many units of Chair were sold in total?,numeric,number,826,,,
+7,numeric,What is the average revenue per order for Corporate customers?,numeric,number,893.8,,,
+8,numeric,Which month of 2024 had the highest total revenue?,numeric,text,,July,,
+9,numeric,"Among orders with a recorded discount, what percentage had a discount of at least 20%?",numeric,number,30.52,,,
+10,numeric,How much more revenue was made in 2024 than in 2023?,numeric,number,161721.13,,,
+11,numeric,What is the median revenue per order?,numeric,number,481.14,,,
+12,numeric,Which product has the most orders?,numeric,text,,Laptop,,
+13,tricky,What is the average discount?,numeric,number,0.118,,,
+14,tricky,How much revenue was made in the first quarter of 2024?,numeric,number,230572.01,,,
+15,tricky,What was the total revenue of Small Business customers in the West region?,numeric,number,79006.99,,,
+16,chart,Show a bar chart of total revenue by region.,chart,chart,,,Region|Revenue,
+17,chart,Plot monthly revenue as a line chart.,chart,chart,,,Order Date|Revenue,
+18,chart,Show the number of orders by category as a bar chart.,chart,chart,,,Category,
+19,chart,Plot a histogram of order revenue.,chart,chart,,,Revenue,
+20,chart,Chart the average discount by customer segment.,chart,chart,,,Customer Segment|Discount,
+21,concept,What does the Discount column mean?,concept,keywords,,,,fraction|0.10|10%|percent|not recorded
+22,concept,How is Revenue calculated?,concept,keywords,,,,units|unit price
+23,concept,What does a missing value in Customer Segment mean?,concept,keywords,,,,not classified|unclassified
+24,concept,Which column uniquely identifies each order?,concept,keywords,,,,order id
+25,external,What is a typical gross margin for retail furniture businesses?,external,web,,,,
+26,external,What is the current inflation rate in the United States?,external,web,,,,
+27,external,What is a typical e-commerce conversion rate?,external,web,,,,
+28,decline,Write me a poem about summer.,out_of_scope,decline,,,,
+29,decline,Delete all rows where Region is North.,out_of_scope,decline,,,,
+30,decline,What is the average profit margin by product?,numeric,decline,,,,

@@ -1,0 +1,32 @@
+variant,description,loaded,load_note,question,expected,correct,answer,attempts,trace,code,latency_s
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str",What is the total sales?,2297200.86,False,The total sales amount is 0.0 based on the provided data and calculation.,0,schema_profiler > question_router > pandas_agent > code_executor > answer_composer > answer_validator > report_builder,"# Convert 'Sales' column to numeric since it's currently text
+sales_numeric = pd.to_numeric(df['Sales'], errors='coerce')
+# Calculate total sales excluding any non-convertible entries
+result = sales_numeric.sum()",6.28
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str",What is the total profit of the Furniture category?,18451.27,False,The total profit of the Furniture category is 0.0.,0,schema_profiler > question_router > pandas_agent > code_executor > answer_composer > answer_validator > report_builder,"# Convert 'Profit' column to numeric since it's text
+profit_numeric = pd.to_numeric(df['Profit'], errors='coerce')
+
+# Filter rows where 'Category' is 'Furniture'
+furniture_df = df[df['Category'] == 'Furniture']
+
+# Convert 'Profit' in filtered dataframe to numeric
+furniture_profit = pd.to_numeric(furniture_df['Profit'], errors='coerce')
+
+# Calculate total profit for Furniture category
+result = furniture_profit.sum()",7.0
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str",Which region had the highest total sales in 2017?,West,False,The region with the highest total sales in 2017 was Central.,0,schema_profiler > question_router > pandas_agent > code_executor > answer_composer > answer_validator > report_builder,"# Convert 'Sales' to numeric since it's text
+sales_numeric = pd.to_numeric(df['Sales'], errors='coerce')
+
+# Filter rows for the year 2017
+sales_2017 = df[df['Order Date'].dt.year == 2017].copy()
+
+# Convert 'Sales' to numeric in the filtered dataframe
+sales_2017['Sales'] = pd.to_numeric(sales_2017['Sales'], errors='coerce')
+
+# Group by 'Region' and sum 'Sales'
+sales_by_region = sales_2017.groupby('Region')['Sales'].sum()
+
+# Find the region with the highest total sales
+result = sales_by_region.idxmax()",7.54
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str",What is the average discount?,0.1562,True,"The average discount calculated from the data is approximately 0.1562, or 15.62%. This value represents the mean of the 'Discount' column in the dataset.",0,schema_profiler > question_router > pandas_agent > code_executor > answer_composer > answer_validator > report_builder,result = df['Discount'].mean(),7.97
+currency,"Sales and Profit as text like '$1,234.56' and '-$12.30'",True,"21 columns; Order Date=datetime64[us], Sales=str, Discount=float64, Profit=str",How many unique orders are there?,5009,True,There are 5009 unique orders based on the count of distinct 'Order ID' values in the dataset.,0,schema_profiler > question_router > pandas_agent > code_executor > answer_composer > answer_validator > report_builder,result = df['Order ID'].nunique(),6.88

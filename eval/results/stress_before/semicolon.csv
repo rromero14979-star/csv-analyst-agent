@@ -1,0 +1,11 @@
+variant,description,loaded,load_note,correct,question
+semicolon,';' as separator (Excel in Spanish/European locales),False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+",False,What is the total sales?
+semicolon,';' as separator (Excel in Spanish/European locales),False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+",False,What is the total profit of the Furniture category?
+semicolon,';' as separator (Excel in Spanish/European locales),False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+",False,Which region had the highest total sales in 2017?
+semicolon,';' as separator (Excel in Spanish/European locales),False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+",False,What is the average discount?
+semicolon,';' as separator (Excel in Spanish/European locales),False,"The file is not a valid CSV: Error tokenizing data. C error: Expected 1 fields in line 3, saw 2
+",False,How many unique orders are there?

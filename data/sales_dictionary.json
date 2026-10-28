@@ -1,0 +1,12 @@
+[
+  {"column": "Order ID", "description": "Unique identifier of the order (one row per order)."},
+  {"column": "Order Date", "description": "Date the order was placed, between 2023-01-01 and 2024-12-31."},
+  {"column": "Region", "description": "Sales region: North, South, East, West or Central."},
+  {"column": "Category", "description": "Product category: Electronics, Furniture or Office Supplies."},
+  {"column": "Product", "description": "Product sold; each product belongs to exactly one category."},
+  {"column": "Units", "description": "Number of units sold in the order."},
+  {"column": "Unit Price", "description": "Price of one unit in dollars before discount."},
+  {"column": "Discount", "description": "Discount as a fraction between 0 and 1 (0.10 means 10%). Missing means the discount was not recorded; exclude missing values from averages."},
+  {"column": "Revenue", "description": "Order revenue in dollars, calculated as Units times Unit Price times (1 minus Discount)."},
+  {"column": "Customer Segment", "description": "Type of customer: Consumer, Corporate or Small Business. Missing means the customer was not classified."}
+]

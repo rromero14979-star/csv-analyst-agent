@@ -1,0 +1,182 @@
+config,id,group,question,expected_route,route_actual,correct,answer,is_graph,fallback,exec_ok,attempts,first_try_ok,hallucinated,latency_s,n_steps,trace,error
+b0,1,numeric,What is the total revenue?,numeric,none,True,"The total revenue cannot be determined exactly from the schema and first rows alone. However, the DataFrame has 2000 rows with a mean revenue of 865.4366. 
+
+An estimate of total revenue can be calculated as:
+Total Revenue ≈ Number of rows × Mean revenue
+Total Revenue ≈ 2000 × 865.4366 = 1,730,873.2
+
+So, the estimated total revenue is approximately 1,730,873.2.",False,False,False,0,False,False,1.41,1,llm_only,
+b0,2,numeric,Which region had the highest total revenue in 2024?,numeric,none,False,"The data shows order dates from 2023-01-01 to 2024-12-31, but the first rows provided are only from early 2023. Since the first rows do not include any data from 2024, and no aggregated revenue by region for 2024 is shown, I cannot determine which region had the highest total revenue in 2024 based on the given information.",False,False,False,0,False,False,1.54,1,llm_only,
+b0,3,numeric,What is the average unit price of Laptops?,numeric,none,False,"The schema shows that the ""Unit Price"" column is numeric and the ""Product"" column includes ""Laptop"" as one of the values. From the first rows, the unit prices for laptops are:
+
+- Row 0: Laptop unit price = 965.53
+- Row 8: Laptop unit price = 955.34
+- Row 15: Laptop unit price = 978.14
+
+Based on these first rows, the average unit price of laptops is approximately:
+
+(965.53 + 955.34 + 978.14) / 3 = 966.34
+
+However, since the dataset has 2000 rows and multiple laptops likely exist beyond these first rows, the exact average unit price of all laptops cannot be determined from the given data. 
+
+So, the average unit price of laptops based on the first rows shown is about 966.34, but the overall average unit price of laptops in the full dataset is not known from the provided information.",False,False,False,0,False,False,2.37,1,llm_only,
+b0,4,numeric,How many orders were placed in 2023?,numeric,none,False,"The 'Order Date' column ranges from 2023-01-01 to 2024-12-31, and there are 2000 rows total. However, the exact count of orders placed specifically in 2023 is not provided in the schema or the first rows shown. Therefore, I cannot determine the number of orders placed in 2023 from the given information.",False,False,False,0,False,False,1.08,1,llm_only,
+b0,5,numeric,Which category has the highest average discount?,numeric,none,True,"The schema shows the 'Discount' column ranges from 0.0 to 0.3 with a mean of 0.118, but 57 values are missing. The 'Category' column has three values: 'Electronics', 'Furniture', and 'Office Supplies'.
+
+From the first rows, we see some discount values for each category:
+
+- Electronics discounts: 0.00, 0.05, 0.15, 0.00, 0.20, 0.00
+- Furniture discounts: 0.00, 0.30, 0.20, 0.00, 0.20
+- Office Supplies discounts: 0.30, 0.00, 0.15, NaN, 0.05, 0.00, 0.30
+
+Based on these few samples, Office Supplies and Furniture both have some higher discounts (0.30), but Furniture has a 0.30 discount on row 2 and 0.20 on row 4 and 0.20 on row 16, while Office Supplies has 0.30 on row 6 and 0.30 on row 19.
+
+However, this is only a small sample and not enough to determine the average discount per category for the entire dataset.
+
+Therefore, based on the schema and first rows alone, I cannot definitively say which category has the highest average discount.",False,False,False,0,False,False,2.67,1,llm_only,
+b0,6,numeric,How many units of Chair were sold in total?,numeric,none,True,"The schema shows the 'Units' column represents the number of units sold, and the 'Product' column includes 'Chair' as one of the products. However, the provided data snippet only shows some rows with 'Chair' units (e.g., 5 units in row 2, 2 units in row 4, 6 units in row 8, 5 units in row 16, and 5 units in row 17), but not the entire dataset.
+
+Since the full dataset of 2000 rows is not shown, I cannot determine the total units of Chair sold from the given information.",False,False,False,0,False,False,1.51,1,llm_only,
+b0,7,numeric,What is the average revenue per order for Corporate customers?,numeric,none,False,"The schema shows the 'Revenue' column has no missing values and 'Customer Segment' includes 'Corporate' as a value. However, the provided data snippet does not include aggregated or average revenue values specifically for Corporate customers.
+
+Therefore, based on the schema and first rows alone, I cannot determine the average revenue per order for Corporate customers.",False,False,False,0,False,False,0.96,1,llm_only,
+b0,8,numeric,Which month of 2024 had the highest total revenue?,numeric,none,False,"The data includes order dates from 2023-01-01 to 2024-12-31, but the first rows shown are only from early 2023. Since the first rows do not include any data from 2024, I cannot determine which month of 2024 had the highest total revenue based on the provided information.",False,False,False,0,False,False,1.21,1,llm_only,
+b0,9,numeric,"Among orders with a recorded discount, what percentage had a discount of at least 20%?",numeric,none,False,"The 'Discount' column has 57 missing values, so there are 2000 - 57 = 1943 orders with a recorded discount.
+
+From the first rows, we see discounts like 0.00, 0.05, 0.20, 0.30, etc., so discounts are recorded as decimals (e.g., 0.20 = 20%).
+
+The question asks: Among orders with a recorded discount, what percentage had a discount of at least 20% (i.e., discount >= 0.20)?
+
+I do not have the full data to count how many of the 1943 orders have discount >= 0.20.
+
+Therefore, based on the schema and first rows alone, I cannot determine the exact percentage.",False,False,False,0,False,False,1.62,1,llm_only,
+b0,10,numeric,How much more revenue was made in 2024 than in 2023?,numeric,none,False,"The data spans from 2023-01-01 to 2024-12-31, but the provided information only shows the schema and the first 20 rows, all dated in 2023. Since the revenue values for 2024 are not shown or summarized, I cannot determine how much more revenue was made in 2024 than in 2023 based on the given data.",False,False,False,0,False,False,1.16,1,llm_only,
+b0,11,numeric,What is the median revenue per order?,numeric,none,False,"The schema and first rows provide the 'Revenue' column with a range from 4.16 to 8843.94 and a mean of 865.4366, but do not provide the median revenue value.
+
+Therefore, based on the given information, I cannot determine the median revenue per order.",False,False,False,0,False,False,1.17,1,llm_only,
+b0,12,numeric,Which product has the most orders?,numeric,none,False,"The schema and first rows do not provide the total count of orders per product for the entire dataset. Therefore, I cannot determine which product has the most orders based on the given information.",False,False,False,0,False,False,0.86,1,llm_only,
+b0,13,tricky,What is the average discount?,numeric,none,True,The average discount is given in the schema as 0.118.,False,False,False,0,False,False,0.72,1,llm_only,
+b0,14,tricky,How much revenue was made in the first quarter of 2024?,numeric,none,False,"The data frame covers dates from 2023-01-01 to 2024-12-31, so it includes the first quarter of 2024. However, the provided information does not include aggregated revenue by date or quarter, nor does it provide a way to calculate the total revenue for the first quarter of 2024 directly from the sample rows shown.
+
+Therefore, based on the schema and the first rows shown, I cannot determine how much revenue was made in the first quarter of 2024.",False,False,False,0,False,False,1.28,1,llm_only,
+b0,15,tricky,What was the total revenue of Small Business customers in the West region?,numeric,none,False,"From the schema and first rows, we know:
+- 'Customer Segment' includes 'Small Business'
+- 'Region' includes 'West'
+- 'Revenue' is numeric and has no missing values
+
+However, the first rows do not show any orders from Small Business customers in the West region, and the data summary does not provide aggregated revenue by segment and region.
+
+Therefore, based on the provided information, I cannot determine the total revenue of Small Business customers in the West region.",False,False,False,0,False,False,1.19,1,llm_only,
+b0,16,chart,Show a bar chart of total revenue by region.,chart,none,False,"I cannot generate or display a bar chart directly. However, I can guide you on how to create a bar chart of total revenue by region using the DataFrame `df`.
+
+You can use the following Python code with pandas and matplotlib:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Group by 'Region' and sum the 'Revenue'
+revenue_by_region = df.groupby('Region')['Revenue'].sum()
+
+# Plot a bar chart
+revenue_by_region.plot(kind='bar', color='skyblue')
+plt.title('Total Revenue by Region')
+plt.xlabel('Region')
+plt.ylabel('Total Revenue')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+```
+
+This code will display a bar chart showing the total revenue for each region.",False,False,False,0,False,False,1.8,1,llm_only,
+b0,17,chart,Plot monthly revenue as a line chart.,chart,none,False,"The data includes 'Order Date' and 'Revenue' columns, so to plot monthly revenue as a line chart, you would:
+
+1. Extract the month and year from 'Order Date'.
+2. Group the data by this month-year.
+3. Sum the 'Revenue' for each month.
+4. Plot the summed revenue over time as a line chart.
+
+Since I cannot create plots directly here, the general Python code using pandas and matplotlib would be:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame
+df['YearMonth'] = df['Order Date'].dt.to_period('M')
+monthly_revenue = df.groupby('YearMonth')['Revenue'].sum()
+
+monthly_revenue.plot(kind='line')
+plt.title('Monthly Revenue')
+plt.xlabel('Month')
+plt.ylabel('Revenue')
+plt.show()
+```
+
+This will produce a line chart showing total revenue per month.",False,False,False,0,False,False,1.92,1,llm_only,
+b0,18,chart,Show the number of orders by category as a bar chart.,chart,none,False,"I cannot generate a bar chart directly here, but I can tell you how to do it using the data.
+
+You can count the number of orders per category using the 'Category' column and then plot a bar chart. For example, in Python with pandas and matplotlib:
+
+```python
+import matplotlib.pyplot as plt
+
+# Count orders by category
+order_counts = df['Category'].value_counts()
+
+# Plot bar chart
+order_counts.plot(kind='bar')
+plt.xlabel('Category')
+plt.ylabel('Number of Orders')
+plt.title('Number of Orders by Category')
+plt.show()
+```
+
+This will display a bar chart showing the number of orders for each category: Electronics, Furniture, and Office Supplies.",False,False,False,0,False,False,1.82,1,llm_only,
+b0,19,chart,Plot a histogram of order revenue.,chart,none,False,"The DataFrame `df` contains an 'Revenue' column with numeric values representing order revenue. To plot a histogram of order revenue, you would use this 'Revenue' column.
+
+Since I cannot generate plots directly here, the typical code in Python using pandas and matplotlib would be:
+
+```python
+import matplotlib.pyplot as plt
+
+df['Revenue'].hist(bins=30)
+plt.xlabel('Order Revenue')
+plt.ylabel('Frequency')
+plt.title('Histogram of Order Revenue')
+plt.show()
+```
+
+This will create a histogram showing the distribution of order revenue across all 2000 orders.",False,False,False,0,False,False,1.34,1,llm_only,
+b0,20,chart,Chart the average discount by customer segment.,chart,none,False,"The data shows that the 'Discount' column has some missing values (57 missing) and the 'Customer Segment' column also has some missing values (38 missing). To chart the average discount by customer segment, you would:
+
+1. Exclude rows where 'Discount' or 'Customer Segment' is missing.
+2. Group the data by 'Customer Segment'.
+3. Calculate the mean of 'Discount' for each segment.
+4. Plot these averages in a chart (e.g., bar chart).
+
+Since I only have the schema and first rows, I cannot provide the exact average discount values by customer segment. However, the approach above is how you would compute and chart it.",False,False,False,0,False,False,1.38,1,llm_only,
+b0,21,concept,What does the Discount column mean?,concept,none,False,"The Discount column represents the discount rate applied to each order, expressed as a decimal value ranging from 0.0 (no discount) to 0.3 (30% discount). Some values are missing (57 missing), indicating that the discount information is not available for those orders.",False,False,False,0,False,False,0.96,1,llm_only,
+b0,22,concept,How is Revenue calculated?,concept,none,True,"Revenue appears to be calculated as:
+
+Revenue = Units * Unit Price * (1 - Discount)
+
+This is inferred from the columns Units, Unit Price, Discount, and Revenue, where Revenue reflects the total sales amount after applying the discount to the unit price multiplied by the number of units sold.",False,False,False,0,False,False,0.96,1,llm_only,
+b0,23,concept,What does a missing value in Customer Segment mean?,concept,none,False,"Based on the schema and the first rows shown, the ""Customer Segment"" column has some missing values (38 missing out of 2000 rows). However, there is no explicit information provided about what a missing value in ""Customer Segment"" means. Therefore, I cannot determine the meaning of a missing value in ""Customer Segment"" from the given data.",False,False,False,0,False,False,1.08,1,llm_only,
+b0,24,concept,Which column uniquely identifies each order?,concept,none,True,"The column 'Order ID' uniquely identifies each order, as it has 2000 distinct values for 2000 rows with no missing values.",False,False,False,0,False,False,0.88,1,llm_only,
+b0,25,external,What is a typical gross margin for retail furniture businesses?,external,none,False,"The provided data schema and sample rows do not include any information about gross margin or cost-related columns that would allow calculation of gross margin for retail furniture businesses. Therefore, I cannot determine a typical gross margin for retail furniture businesses from this data.",False,False,False,0,False,False,0.82,1,llm_only,
+b0,26,external,What is the current inflation rate in the United States?,external,none,False,"The provided table and data schema do not contain any information about the current inflation rate in the United States. Therefore, I cannot determine the inflation rate from this data.",False,False,False,0,False,False,0.83,1,llm_only,
+b0,27,external,What is a typical e-commerce conversion rate?,external,none,False,"The provided table and schema describe sales order data, including order details, products, regions, and revenues. However, there is no information about website visits, sessions, or the number of visitors versus buyers, which are necessary to calculate or know the e-commerce conversion rate.
+
+Therefore, based on the given data, I cannot determine a typical e-commerce conversion rate.",False,False,False,0,False,False,1.11,1,llm_only,
+b0,28,decline,Write me a poem about summer.,out_of_scope,none,True,I cannot answer that question using the table data provided.,False,False,False,0,False,False,0.59,1,llm_only,
+b0,29,decline,Delete all rows where Region is North.,out_of_scope,none,False,"To delete all rows where the Region is 'North', you would filter the DataFrame to keep only rows where Region is not 'North'. 
+
+In pandas, this can be done as:
+
+```python
+df = df[df['Region'] != 'North']
+```
+
+This will remove all rows with Region equal to 'North' from the DataFrame.",False,False,False,0,False,False,1.02,1,llm_only,
+b0,30,decline,What is the average profit margin by product?,numeric,none,True,"The provided schema and first rows do not include any column related to profit or profit margin. There is a 'Revenue' column but no cost or profit data to calculate profit margin. Therefore, based on the given information, I cannot determine the average profit margin by product.",False,False,False,0,False,False,0.95,1,llm_only,

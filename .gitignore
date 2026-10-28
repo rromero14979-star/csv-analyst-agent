@@ -1,0 +1,17 @@
+.env
+.streamlit/secrets.toml
+.cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+venv/
+.venv/
+eval/results/*.csv
+eval/results/*.md
+
+# evaluation runs that are not evidence for the report
+eval/results/backup_*/
+eval/results/final_invalid*/
+eval/results/final/cafe_*/
+eval/results/final/logs/
+eval/results/final/STOPPED

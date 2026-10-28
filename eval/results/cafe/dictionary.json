@@ -1,0 +1,42 @@
+[
+ {
+  "column": "Transaction ID",
+  "dtype": "text",
+  "description": "Unique identifier for each transaction, useful as a primary key."
+ },
+ {
+  "column": "Item",
+  "dtype": "text",
+  "description": "Type of purchased item; includes valid items and error/unknown entries."
+ },
+ {
+  "column": "Quantity",
+  "dtype": "text",
+  "description": "Number of items bought; contains numeric strings and error/unknown values."
+ },
+ {
+  "column": "Price Per Unit",
+  "dtype": "text",
+  "description": "Cost per single item unit; includes numeric strings and error/unknown values."
+ },
+ {
+  "column": "Total Spent",
+  "dtype": "text",
+  "description": "Total amount paid per transaction; limited distinct values and some missing."
+ },
+ {
+  "column": "Payment Method",
+  "dtype": "text",
+  "description": "Mode of payment used; includes valid methods and error/unknown entries."
+ },
+ {
+  "column": "Location",
+  "dtype": "text",
+  "description": "Purchase location type; includes valid locations and error/unknown entries."
+ },
+ {
+  "column": "Transaction Date",
+  "dtype": "datetime",
+  "description": "Date of transaction within 2023; some dates are missing."
+ }
+]

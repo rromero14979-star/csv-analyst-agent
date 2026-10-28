@@ -1,0 +1,284 @@
+config,id,group,question,expected_route,route_actual,correct,answer,is_graph,fallback,exec_ok,attempts,first_try_ok,hallucinated,latency_s,n_steps,trace,error
+b0,1,numeric,How many transactions are there?,numeric,none,True,"There are 10,000 transactions in the DataFrame, as indicated by the number of rows.",False,False,False,0,False,False,0.87,1,llm_only,
+b0,2,numeric,"What is the sum of Total Spent, ignoring empty, ERROR and UNKNOWN values?",numeric,none,False,"The 'Total Spent' column is stored as text with 97% numeric values and some 'UNKNOWN' and 'ERROR' entries, plus some missing values. To get the sum ignoring empty, 'ERROR', and 'UNKNOWN' values, we would convert the column to numeric using pd.to_numeric(errors='coerce'), which converts invalid parsing to NaN, then sum ignoring NaNs.
+
+Since the dataset has 10,000 rows and 97% valid numeric values, approximately 9,700 values are numeric.
+
+However, the exact sum cannot be determined from the schema and first rows alone.
+
+Therefore, I cannot know the exact sum of 'Total Spent' ignoring empty, 'ERROR', and 'UNKNOWN' values based on the provided information.",False,False,False,0,False,False,2.14,1,llm_only,
+b0,3,numeric,"Which item appears in the most transactions, ignoring empty, ERROR and UNKNOWN values?",numeric,none,True,"From the schema and first rows, we know the 'Item' column contains some invalid values: 'UNKNOWN', 'ERROR', and missing (NaN). We need to ignore these and count the occurrences of valid items.
+
+Valid items from the sample include: 'Juice', 'Coffee', 'Salad', 'Cake', 'Sandwich', 'Smoothie', 'Cookie', 'Tea'.
+
+The first rows show multiple occurrences of 'Sandwich', 'Coffee', 'Salad', and others.
+
+However, the exact counts for all 10,000 rows are not provided, so we cannot definitively say which item appears most frequently.
+
+Therefore, based on the provided information, it is not possible to determine which item appears in the most transactions ignoring empty, ERROR, and UNKNOWN values.",False,False,False,0,False,False,1.78,1,llm_only,
+b0,4,numeric,"What is the average quantity per transaction, ignoring empty, ERROR and UNKNOWN values?",numeric,none,False,"The 'Quantity' column is stored as text and contains mostly numeric values, but also some 'UNKNOWN', 'ERROR', and missing values. To find the average quantity per transaction ignoring these invalid entries, we would:
+
+- Convert 'Quantity' to numeric using pd.to_numeric with errors='coerce' to convert 'UNKNOWN' and 'ERROR' to NaN.
+- Drop or ignore NaN values.
+- Calculate the mean of the remaining numeric quantities.
+
+From the schema, 96% of the values are numbers, and there are 138 missing values in 'Quantity'.
+
+Since the exact numeric values are not provided for all rows, I cannot compute the exact average quantity per transaction.
+
+Therefore, based on the provided information, I cannot determine the exact average quantity per transaction ignoring empty, ERROR, and UNKNOWN values.",False,False,False,0,False,False,2.22,1,llm_only,
+b0,5,numeric,"Which payment method is used most often, ignoring empty, ERROR and UNKNOWN values?",numeric,none,True,"From the schema and first rows, the 'Payment Method' column has values including 'Digital Wallet', 'Credit Card', 'Cash', 'ERROR', 'UNKNOWN', and missing values.
+
+To find the most often used payment method ignoring empty, ERROR, and UNKNOWN values, we consider only 'Digital Wallet', 'Credit Card', and 'Cash'.
+
+The first rows show examples of these payment methods:
+- Credit Card appears multiple times (rows 0, 2, 5, 11, 15)
+- Cash appears multiple times (rows 1, 7, 12, 17, 18, 19)
+- Digital Wallet appears at least once (row 4)
+
+From the sample, Cash appears more frequently than Credit Card and Digital Wallet.
+
+However, since this is only a small sample of the 10,000 rows, and the schema does not provide counts per payment method, I cannot definitively determine which payment method is used most often overall.
+
+Therefore, based on the provided information, I cannot know for sure which payment method is used most often ignoring empty, ERROR, and UNKNOWN values.",False,False,False,0,False,False,2.82,1,llm_only,
+b0,6,numeric,"What is the total quantity of Coffee sold, ignoring empty, ERROR and UNKNOWN values?",numeric,none,False,"To find the total quantity of Coffee sold, ignoring empty, ERROR, and UNKNOWN values, we need to:
+
+1. Filter rows where 'Item' is 'Coffee'.
+2. Exclude rows where 'Quantity' is empty, 'ERROR', or 'UNKNOWN'.
+3. Convert 'Quantity' to numeric and sum the values.
+
+From the schema and first rows, 'Quantity' is stored as text with some 'ERROR' and 'UNKNOWN' values, but 96% are numeric strings.
+
+Looking at the first rows, for example:
+- Row 0: Item = Coffee, Quantity = '2' (valid)
+- Row 4: Item = Coffee, Quantity = '2' (valid)
+
+Since we don't have the full data, we cannot compute the exact total quantity.
+
+Therefore, based on the provided information, the exact total quantity of Coffee sold cannot be determined.",False,False,False,0,False,False,1.81,1,llm_only,
+b0,7,numeric,"What is the average Total Spent of In-store transactions, ignoring empty, ERROR and UNKNOWN values?",numeric,none,True,"To find the average Total Spent of In-store transactions, ignoring empty, ERROR, and UNKNOWN values, we need to:
+
+1. Filter rows where Location is 'In-store'.
+2. Convert 'Total Spent' to numeric, coercing errors to NaN.
+3. Exclude rows where 'Total Spent' is NaN (which includes empty, ERROR, UNKNOWN).
+4. Calculate the mean of the remaining 'Total Spent' values.
+
+From the schema and first rows, we know:
+- 'Total Spent' is stored as text with some 'ERROR' and 'UNKNOWN' values.
+- 'Location' has values including 'In-store', with some missing or error values.
+- We have some example rows with 'In-store' and valid 'Total Spent' values (e.g., row 1: 12.0, row 2: ERROR, row 4: 4.0, row 9: 20.0, row 10: 25.0, row 12: 8.0, row 15: 15.0, row 17: 6.0).
+
+Calculating average from these example valid 'Total Spent' values for 'In-store':
+Valid 'Total Spent' values: 12.0, 4.0, 20.0, 25.0, 8.0, 15.0, 6.0
+
+Sum = 12 + 4 + 20 + 25 + 8 + 15 + 6 = 90
+Count = 7
+
+Average = 90 / 7 ≈ 12.86
+
+Therefore, the average Total Spent of In-store transactions, ignoring empty, ERROR, and UNKNOWN values, is approximately 12.86.",False,False,False,0,False,False,3.5,1,llm_only,
+b0,8,numeric,"Which month had the highest sum of Total Spent, ignoring empty, ERROR and UNKNOWN values?",numeric,none,False,"To answer the question, we need to:
+
+1. Convert the 'Total Spent' column to numeric, coercing errors to NaN to ignore 'ERROR', 'UNKNOWN', and empty values.
+2. Extract the month from the 'Transaction Date' column.
+3. Group by the month and sum the 'Total Spent' values.
+4. Identify the month with the highest sum.
+
+From the schema and first rows, we know:
+- 'Total Spent' has some 'ERROR' and 'UNKNOWN' values, which will be converted to NaN.
+- 'Transaction Date' is datetime with some missing values.
+- We can ignore rows with missing or invalid 'Total Spent' or 'Transaction Date'.
+
+Since the exact sums are not provided, I cannot compute the exact month with the highest sum from the given data alone.
+
+Therefore, based on the provided information, I cannot determine which month had the highest sum of Total Spent.",False,False,False,0,False,False,2.32,1,llm_only,
+b0,9,tricky,"How many transactions have an invalid Total Spent value (empty, ERROR or UNKNOWN)?",numeric,none,False,"The 'Total Spent' column has 173 missing values and some values labeled as 'ERROR' or 'UNKNOWN'. These non-numeric values are considered invalid.
+
+Since the column has 19 distinct values and 97% are numeric, the remaining 3% are invalid (including 'ERROR', 'UNKNOWN', and missing).
+
+To find the exact count of invalid 'Total Spent' values, we consider:
+- Missing values: 173
+- Non-numeric values ('ERROR', 'UNKNOWN'): part of the 3% non-numeric values
+
+Given 10,000 rows, 3% non-numeric means about 300 rows total non-numeric or missing.
+
+Since missing is 173, the rest (about 127) are 'ERROR' or 'UNKNOWN'.
+
+Therefore, total invalid 'Total Spent' values = missing (173) + 'ERROR'/'UNKNOWN' (~127) = approximately 300 transactions.
+
+Answer: Approximately 300 transactions have an invalid 'Total Spent' value (empty, ERROR, or UNKNOWN).",False,False,False,0,False,False,2.58,1,llm_only,
+b0,10,tricky,"What percentage of transactions have a missing or invalid Location (empty, ERROR or UNKNOWN)?",numeric,none,False,"The Location column has 3265 missing values. Additionally, the values 'ERROR' and 'UNKNOWN' are considered invalid.
+
+From the schema:
+- Location missing: 3265
+- Location values include 'ERROR' and 'UNKNOWN'
+
+We don't have the exact counts of 'ERROR' and 'UNKNOWN' in Location, but since these are listed as values, they contribute to invalid locations.
+
+Since total rows = 10000,
+Percentage with missing or invalid Location = (missing + 'ERROR' + 'UNKNOWN') / 10000 * 100%
+
+We know missing = 3265, but counts of 'ERROR' and 'UNKNOWN' are not given explicitly.
+
+Therefore, we cannot calculate the exact percentage without the counts of 'ERROR' and 'UNKNOWN' in Location.
+
+Answer: Cannot determine the exact percentage of transactions with missing or invalid Location because the counts of 'ERROR' and 'UNKNOWN' values in Location are not provided. We only know there are 3265 missing values.",False,False,False,0,False,False,2.67,1,llm_only,
+b0,11,tricky,"Recompute Total Spent as Quantity times Price Per Unit, ignoring empty, ERROR and UNKNOWN values. What is the sum of the recomputed values?",numeric,none,False,"To answer the question, we need to:
+
+1. Convert 'Quantity' and 'Price Per Unit' columns to numeric, coercing errors to NaN.
+2. Ignore rows where 'Quantity' or 'Price Per Unit' are NaN (which includes empty, ERROR, UNKNOWN).
+3. Compute Total Spent as Quantity * Price Per Unit for these rows.
+4. Sum the recomputed Total Spent values.
+
+From the schema and first rows:
+- 'Quantity' and 'Price Per Unit' are text columns with mostly numeric values, some 'ERROR', 'UNKNOWN', or missing.
+- We can convert them using pd.to_numeric(errors='coerce') to get NaN for invalid entries.
+- Then multiply and sum.
+
+Since I don't have the full data, I cannot compute the exact sum. The schema and sample rows do not provide enough information to calculate the sum of recomputed Total Spent values.
+
+Answer: I cannot determine the sum of the recomputed Total Spent values with the given information.",False,False,False,0,False,False,3.08,1,llm_only,
+b0,12,tricky,"What is the most common price per unit of a Smoothie, ignoring empty, ERROR and UNKNOWN values?",numeric,none,True,"From the schema and first rows, we know:
+
+- 'Price Per Unit' is stored as text but mostly numeric values.
+- Invalid values include 'ERROR', 'UNKNOWN', and missing values.
+- We need to consider only rows where 'Item' is 'Smoothie'.
+- Then find the most common numeric 'Price Per Unit' for those rows.
+
+From the first rows, row 5 has Item 'Smoothie' with Price Per Unit '4.0'.
+
+Since we don't have the full data, but only the schema and first rows, we cannot definitively say the most common price per unit for Smoothie.
+
+However, given the example row, the price per unit for Smoothie is 4.0.
+
+Without full data, the best we can say is that 4.0 is a valid price per unit for Smoothie, but we cannot confirm if it is the most common.
+
+Answer: Cannot determine the most common price per unit for Smoothie from the given data.",False,False,False,0,False,False,2.59,1,llm_only,
+b0,13,chart,Show a bar chart of the number of transactions per item.,chart,none,False,"The 'Item' column contains some invalid values ('UNKNOWN', 'ERROR') and missing values (333 missing). To show a bar chart of the number of transactions per item, we should exclude these invalid and missing entries.
+
+Steps:
+1. Filter out rows where 'Item' is missing or in ['UNKNOWN', 'ERROR'].
+2. Count the number of transactions per valid item.
+3. Plot a bar chart of these counts.
+
+Since I cannot generate the actual plot here, I provide the code snippet to do this in Python with pandas and matplotlib:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is the DataFrame
+
+# Filter valid items
+valid_items = df['Item'].dropna()
+valid_items = valid_items[~valid_items.isin(['UNKNOWN', 'ERROR'])]
+
+# Count transactions per item
+item_counts = valid_items.value_counts()
+
+# Plot bar chart
+item_counts.plot(kind='bar')
+plt.xlabel('Item')
+plt.ylabel('Number of Transactions')
+plt.title('Number of Transactions per Item')
+plt.show()
+```
+
+This will display a bar chart showing the count of transactions for each valid item.",False,False,False,0,False,False,2.61,1,llm_only,
+b0,14,chart,"Plot the monthly sum of Total Spent as a line chart, ignoring empty, ERROR and UNKNOWN values.",chart,none,False,"To plot the monthly sum of Total Spent as a line chart, ignoring empty, ERROR, and UNKNOWN values, follow these steps:
+
+1. Convert 'Total Spent' to numeric, coercing errors to NaN.
+2. Filter out rows where 'Total Spent' is NaN.
+3. Ensure 'Transaction Date' is datetime and filter out missing dates.
+4. Group by the month of 'Transaction Date' and sum 'Total Spent'.
+5. Plot the result as a line chart.
+
+Example code in Python using pandas and matplotlib:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is the DataFrame
+
+# Convert 'Total Spent' to numeric, coercing errors to NaN
+df['Total Spent'] = pd.to_numeric(df['Total Spent'], errors='coerce')
+
+# Drop rows with NaN in 'Total Spent' or 'Transaction Date'
+df_clean = df.dropna(subset=['Total Spent', 'Transaction Date'])
+
+# Extract month from 'Transaction Date'
+df_clean['Month'] = df_clean['Transaction Date'].dt.to_period('M')
+
+# Group by month and sum 'Total Spent'
+monthly_sum = df_clean.groupby('Month')['Total Spent'].sum()
+
+# Plot line chart
+monthly_sum.plot(kind='line', marker='o')
+plt.title('Monthly Sum of Total Spent')
+plt.xlabel('Month')
+plt.ylabel('Total Spent')
+plt.xticks(rotation=45)
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+This will produce a line chart showing the monthly total spending, excluding invalid or missing values.",False,False,False,0,False,False,3.6,1,llm_only,
+b0,15,chart,Show a bar chart of the number of transactions by payment method.,chart,none,False,"The 'Payment Method' column contains values like 'Digital Wallet', 'Credit Card', 'Cash', 'ERROR', 'UNKNOWN', and has 2579 missing values.
+
+To show a bar chart of the number of transactions by payment method, we should:
+
+1. Exclude missing values and possibly exclude 'ERROR' and 'UNKNOWN' as they are not valid payment methods.
+2. Count the number of transactions per valid payment method.
+3. Plot a bar chart.
+
+Here is the code to do this in Python using pandas and matplotlib:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is the DataFrame
+
+# Filter out invalid payment methods and missing values
+valid_payments = df['Payment Method'].dropna()
+valid_payments = valid_payments[~valid_payments.isin(['ERROR', 'UNKNOWN'])]
+
+# Count transactions per payment method
+payment_counts = valid_payments.value_counts()
+
+# Plot bar chart
+payment_counts.plot(kind='bar')
+plt.xlabel('Payment Method')
+plt.ylabel('Number of Transactions')
+plt.title('Number of Transactions by Payment Method')
+plt.show()
+```
+
+This will display a bar chart showing the count of transactions for each valid payment method.",False,False,False,0,False,False,2.5,1,llm_only,
+b0,16,concept,What does the Location column mean?,concept,none,True,"The Location column indicates where the transaction took place, with possible values including 'Takeaway' and 'In-store'. It also contains some invalid or missing entries such as 'ERROR', 'UNKNOWN', and NaN.",False,False,False,0,False,False,0.89,1,llm_only,
+b0,17,concept,What does the Price Per Unit column mean?,concept,none,True,"The ""Price Per Unit"" column represents the cost of one unit of the item purchased in each transaction. It is stored as text but mostly contains numeric values indicating the price for a single unit of the item. Some entries have 'ERROR' or 'UNKNOWN', which are non-numeric and should be converted to numeric with coercion for analysis.",False,False,False,0,False,False,1.23,1,llm_only,
+b0,18,external,What is the average price of a cup of coffee in the United States?,external,none,False,"The provided data schema and sample rows do not include any information about the country or specify that the data is from the United States. Therefore, it is not possible to determine the average price of a cup of coffee in the United States from this dataset.",False,False,False,0,False,False,1.0,1,llm_only,
+b0,19,decline,Write me a poem about coffee.,out_of_scope,none,False,"Coffee, dark and warm delight,
+In morning's hush or fading night.
+From beans that dance in fire's embrace,
+A rich aroma fills the space.
+
+Two cups poured, a gentle steam,
+Awakening the deepest dream.
+In every sip, a story told,
+Of comfort brewed, both new and old.
+
+Coffee's charm, a daily friend,
+On it, many moments depend.
+From takeaway cups to in-store cheer,
+Its magic lingers, ever near.",False,False,False,0,False,False,1.54,1,llm_only,
+b0,20,decline,Replace all ERROR values with 0 in the file.,out_of_scope,none,False,"To replace all 'ERROR' values with 0 in the DataFrame `df`, you can use the pandas `replace` method as follows:
+
+```python
+df.replace('ERROR', 0, inplace=True)
+```
+
+This will replace every occurrence of the string 'ERROR' in all columns with the numeric value 0.",False,False,False,0,False,False,1.17,1,llm_only,
+b0,21,decline,What is the average age of the customers?,numeric,none,True,"The provided table schema and sample data do not include any information about customer age. Therefore, I cannot determine the average age of the customers from this data.",False,False,False,0,False,False,0.81,1,llm_only,

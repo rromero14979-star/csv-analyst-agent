@@ -1,0 +1,137 @@
+config,id,group,question,expected_route,route_actual,correct,answer,is_graph,fallback,exec_ok,attempts,first_try_ok,hallucinated,latency_s,n_steps,trace,error
+b0,1,numeric,What is the total sales?,numeric,none,False,"The total sales cannot be determined exactly from the given schema and first rows alone. The schema provides the range and mean of sales but not the sum. The first rows show individual sales values but only for a few rows, not all 9994 rows.
+
+Therefore, the total sales is not known from the provided information.",False,False,False,0,False,False,1.51,1,llm_only,
+b0,2,numeric,Which region had the highest total sales in 2017?,numeric,none,False,"The provided data schema and first rows do not include aggregated sales by region for 2017, nor do they provide a direct summary of total sales per region for that year. Therefore, based on the given information, I cannot determine which region had the highest total sales in 2017.",False,False,False,0,False,False,1.38,1,llm_only,
+b0,3,numeric,What is the total profit of the Furniture category?,numeric,none,False,"The total profit of the Furniture category cannot be determined exactly from the provided schema and first rows alone, as the full dataset with all rows is needed to sum the profit values for all Furniture category entries.",False,False,False,0,False,False,0.99,1,llm_only,
+b0,4,numeric,Which sub-category has the lowest total profit?,numeric,none,False,"From the provided schema and first rows, I cannot determine which sub-category has the lowest total profit because the total profit per sub-category requires aggregation over all rows, and only a few rows are shown.",False,False,False,0,False,False,1.37,1,llm_only,
+b0,5,numeric,What is the average discount in the Central region?,numeric,none,False,"The schema shows the 'Discount' column is numeric and the 'Region' column includes 'Central' as one of its values. However, the first rows shown do not include any rows explicitly labeled with the 'Central' region to calculate the average discount for that region.
+
+Therefore, based on the provided schema and first rows, I cannot determine the average discount in the Central region.",False,False,False,0,False,False,1.29,1,llm_only,
+b0,6,numeric,Which state has the highest total profit?,numeric,none,False,"The provided data schema and first rows do not include the total profit by state or any aggregation of profit by state. Therefore, based on the given information, I cannot determine which state has the highest total profit.",False,False,False,0,False,False,1.12,1,llm_only,
+b0,7,numeric,How many order lines were shipped with the Same Day ship mode?,numeric,none,False,"The schema indicates that the ""Ship Mode"" column has values including 'Standard Class', 'Second Class', 'First Class', and 'Same Day'. However, the first rows shown (rows 0 to 19) do not include any entries with the 'Same Day' ship mode.
+
+Since the dataset has 9994 rows and the sample does not show any 'Same Day' ship mode rows, I cannot determine the exact number of order lines shipped with the 'Same Day' ship mode from the provided information.
+
+Answer: I cannot know the number of order lines shipped with the 'Same Day' ship mode based on the given data.",False,False,False,0,False,False,2.73,1,llm_only,
+b0,8,numeric,Which customer generated the most sales?,numeric,none,False,"From the provided schema and first rows, I cannot determine which customer generated the most sales because the data for all customers' total sales is not summarized or shown. Only individual rows are shown, and the total sales per customer would require aggregation over all rows.",False,False,False,0,False,False,1.33,1,llm_only,
+b0,9,numeric,Which month of 2017 had the highest total sales?,numeric,none,False,"The data includes order dates from 2014-01-03 to 2017-12-30, so it covers all months of 2017. However, the provided sample rows do not include a breakdown of sales by month for 2017, nor do they show aggregated sales totals by month.
+
+Based on the schema and first rows alone, I cannot determine which month of 2017 had the highest total sales.",False,False,False,0,False,False,1.78,1,llm_only,
+b0,10,numeric,What are the total sales of the Phones sub-category in the East region?,numeric,none,False,"The schema and first rows do not provide enough information to determine the total sales of the Phones sub-category in the East region. The sample rows shown include some Phones sales but none from the East region. Therefore, I cannot know the total sales for Phones in the East region from the given data.",False,False,False,0,False,False,1.44,1,llm_only,
+b0,11,numeric,What is the total quantity sold in the Technology category?,numeric,none,False,"The schema shows a 'Quantity' column representing the number of items sold and a 'Category' column with values including 'Technology'. However, the first rows shown do not provide enough data to calculate the total quantity sold in the Technology category.
+
+Therefore, based on the provided information, I cannot determine the total quantity sold in the Technology category.",False,False,False,0,False,False,1.26,1,llm_only,
+b0,12,tricky,How many unique orders are there?,numeric,none,True,"There are 5009 distinct values in the 'Order ID' column, so there are 5009 unique orders.",False,False,False,0,False,False,0.99,1,llm_only,
+b0,13,tricky,What percentage of order lines have a negative profit?,numeric,none,True,"The dataset has 9994 rows (order lines) in total.
+
+To find the percentage of order lines with negative profit, we need to know how many rows have Profit < 0.
+
+From the schema and first rows, we see Profit ranges from -6599.978 to 8399.976, so negative profits exist.
+
+However, the exact count or percentage of rows with negative profit is not provided in the schema or first rows.
+
+Therefore, based on the given information, I cannot determine the percentage of order lines with negative profit.",False,False,False,0,False,False,1.92,1,llm_only,
+b0,14,tricky,What is the profit margin (total profit divided by total sales) of the Technology category?,numeric,none,False,"From the schema and first rows, I cannot directly calculate the total profit and total sales for the Technology category because the full data is not provided. Therefore, I cannot determine the profit margin of the Technology category.",False,False,False,0,False,False,1.05,1,llm_only,
+b0,15,tricky,What is the average number of days between the order date and the ship date?,numeric,none,True,"The schema shows 'Order Date' and 'Ship Date' columns with datetime values. The first rows indicate that the ship date is typically a few days after the order date (e.g., row 0: 2016-11-08 to 2016-11-11 is 3 days).
+
+However, the exact average number of days between order date and ship date cannot be determined from the schema and first rows alone.
+
+Therefore, I cannot know the average number of days between the order date and the ship date based on the provided information.",False,False,False,0,False,False,1.82,1,llm_only,
+b0,16,tricky,How much did total sales grow from 2016 to 2017?,numeric,none,False,"The provided data schema and first rows do not include aggregated sales totals by year, nor do they provide direct yearly sales summaries. Therefore, I cannot determine the total sales growth from 2016 to 2017 based on the given information.",False,False,False,0,False,False,1.57,1,llm_only,
+b0,17,chart,Show a bar chart of total sales by category.,chart,none,False,"I cannot directly create or display charts. However, I can guide you on how to create a bar chart of total sales by category using Python with pandas and matplotlib:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame
+sales_by_category = df.groupby('Category')['Sales'].sum()
+
+sales_by_category.plot(kind='bar')
+plt.title('Total Sales by Category')
+plt.xlabel('Category')
+plt.ylabel('Total Sales')
+plt.show()
+```
+
+This code groups the data by 'Category', sums the 'Sales' for each category, and then plots a bar chart.",False,False,False,0,False,False,2.02,1,llm_only,
+b0,18,chart,Plot monthly profit as a line chart.,chart,none,False,"I cannot create a plot directly here, but I can guide you on how to do it using Python with pandas and matplotlib.
+
+Here is the code to plot monthly profit as a line chart:
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame and 'Order Date' is datetime type
+# If not, convert it:
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+
+# Group by month and year, summing profit
+monthly_profit = df.groupby(pd.Grouper(key='Order Date', freq='M'))['Profit'].sum()
+
+# Plotting
+plt.figure(figsize=(12,6))
+monthly_profit.plot(kind='line')
+plt.title('Monthly Profit Over Time')
+plt.xlabel('Month')
+plt.ylabel('Profit')
+plt.grid(True)
+plt.show()
+```
+
+This will give you a line chart of total profit aggregated by month.",False,False,False,0,False,False,2.54,1,llm_only,
+b0,19,chart,Plot a histogram of the discount.,chart,none,False,"The 'Discount' column is numeric with values ranging from 0.0 to 0.8. To plot a histogram of the discount, you can use a plotting library such as matplotlib or seaborn in Python. Here's an example code snippet using matplotlib:
+
+```python
+import matplotlib.pyplot as plt
+
+# Assuming df is your DataFrame
+plt.hist(df['Discount'], bins=20, edgecolor='black')
+plt.title('Histogram of Discount')
+plt.xlabel('Discount')
+plt.ylabel('Frequency')
+plt.show()
+```
+
+This will create a histogram showing the distribution of discount values in the dataset.",False,False,False,0,False,False,2.32,1,llm_only,
+b0,20,concept,What does the Segment column mean?,concept,none,True,"The Segment column categorizes customers into three groups: Consumer, Corporate, and Home Office. This likely represents different types of customer segments or market segments for the sales data.",False,False,False,0,False,False,1.09,1,llm_only,
+b0,21,concept,What does a negative value in the Profit column mean?,concept,none,True,A negative value in the Profit column means that the sale resulted in a loss rather than a profit. This indicates that the costs or expenses associated with that sale exceeded the revenue generated from it.,False,False,False,0,False,False,1.0,1,llm_only,
+b0,22,external,What is a typical net profit margin for office supply retailers?,external,none,False,"The provided data includes sales and profit information for various product categories, including ""Office Supplies."" However, the dataset is specific to a particular retailer or set of transactions and does not provide industry-wide data or benchmarks for office supply retailers in general.
+
+From the dataset, one could calculate the net profit margin for the ""Office Supplies"" category by dividing the total profit by total sales for that category. But this would only reflect the profit margin for this dataset's retailer(s), not a typical margin for the entire office supply retail industry.
+
+Therefore, based on the given data and schema, I cannot determine a typical net profit margin for office supply retailers in general.",False,False,False,0,False,False,1.83,1,llm_only,
+b0,23,decline,Write me a poem about shipping.,out_of_scope,none,False,"In warehouses where orders start their flight,  
+From bustling cities bathed in morning light,  
+A journey begins with care and speed,  
+To meet the needs, fulfill the deed.  
+
+Standard Class or Same Day's grace,  
+Second Class finds its steady pace,  
+First Class glides with swift embrace,  
+Each mode a promise, time and place.  
+
+From Kentucky's calm to California's shore,  
+Through South and West, East and Central's core,  
+Packages travel, crossing lands,  
+Guided gently by unseen hands.  
+
+Dates marked firm, from ship to dock,  
+Ensuring parcels beat the clock,  
+With every box and every crate,  
+A story told, a customer's fate.  
+
+So here's to shipping, silent and true,  
+Connecting me, connecting you,  
+A dance of logistics, precise and bright,  
+Delivering dreams in morning light.",False,False,False,0,False,False,2.21,1,llm_only,
+b0,24,decline,Delete all orders from Texas.,out_of_scope,none,False,"To delete all orders from Texas, you would filter out rows where the 'State' column is 'Texas'. Since the data is in a DataFrame named df, the operation in pandas would be:
+
+```python
+df = df[df['State'] != 'Texas']
+```
+
+This keeps only rows where the state is not Texas, effectively deleting all orders from Texas.",False,False,False,0,False,False,1.74,1,llm_only,
+b0,25,decline,What is the average customer age by segment?,numeric,none,True,"The provided schema and first rows of the DataFrame do not include any information about customer age. Therefore, it is not possible to determine the average customer age by segment from the given data.",False,False,False,0,False,False,1.14,1,llm_only,

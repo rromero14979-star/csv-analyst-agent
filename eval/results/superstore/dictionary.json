@@ -1,0 +1,107 @@
+[
+ {
+  "column": "Row ID",
+  "dtype": "number",
+  "description": "Unique numeric identifier for each row, useful for indexing and referencing records."
+ },
+ {
+  "column": "Order ID",
+  "dtype": "text",
+  "description": "Unique text identifier for each order, used to track and group order details."
+ },
+ {
+  "column": "Order Date",
+  "dtype": "datetime",
+  "description": "Date when the order was placed, important for time-based analyses."
+ },
+ {
+  "column": "Ship Date",
+  "dtype": "datetime",
+  "description": "Date when the order was shipped, used to calculate shipping duration."
+ },
+ {
+  "column": "Ship Mode",
+  "dtype": "text",
+  "description": "Shipping method category, indicating delivery speed and service type."
+ },
+ {
+  "column": "Customer ID",
+  "dtype": "text",
+  "description": "Unique identifier for each customer, used to link orders to customers."
+ },
+ {
+  "column": "Customer Name",
+  "dtype": "text",
+  "description": "Name of the customer, useful for identification and reporting."
+ },
+ {
+  "column": "Segment",
+  "dtype": "text",
+  "description": "Customer segment classification, indicating market or customer type."
+ },
+ {
+  "column": "Country",
+  "dtype": "text",
+  "description": "Country of the customer or order destination, fixed as United States."
+ },
+ {
+  "column": "City",
+  "dtype": "text",
+  "description": "City of the customer or shipping address, useful for geographic analysis."
+ },
+ {
+  "column": "State",
+  "dtype": "text",
+  "description": "State of the customer or shipping address, useful for regional analysis."
+ },
+ {
+  "column": "Postal Code",
+  "dtype": "number",
+  "description": "Numeric postal code for location, used for geographic grouping."
+ },
+ {
+  "column": "Region",
+  "dtype": "text",
+  "description": "Geographic region category, grouping states into broader areas."
+ },
+ {
+  "column": "Product ID",
+  "dtype": "text",
+  "description": "Unique identifier for each product, used to track product details."
+ },
+ {
+  "column": "Category",
+  "dtype": "text",
+  "description": "High-level product category, classifying products into broad groups."
+ },
+ {
+  "column": "Sub-Category",
+  "dtype": "text",
+  "description": "More detailed product classification within categories, for finer analysis."
+ },
+ {
+  "column": "Product Name",
+  "dtype": "text",
+  "description": "Name of the product, useful for identification and reporting."
+ },
+ {
+  "column": "Sales",
+  "dtype": "number",
+  "description": "Monetary value of sales per order line, used to measure revenue."
+ },
+ {
+  "column": "Quantity",
+  "dtype": "number",
+  "description": "Number of units sold per order line, indicating purchase volume."
+ },
+ {
+  "column": "Discount",
+  "dtype": "number",
+  "description": "Discount rate applied to the sale, expressed as a fraction."
+ },
+ {
+  "column": "Profit",
+  "dtype": "number",
+  "description": "Profit amount from the sale, can be positive or negative indicating gain or loss."
+ }
+]
