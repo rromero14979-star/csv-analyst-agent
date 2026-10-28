@@ -5,7 +5,7 @@ code on your data, fixes the code if it breaks, and checks every number before i
 
 Built with LangChain, LangGraph and Streamlit.
 
-**Live demo:** `<paste your Streamlit Community Cloud URL here>`
+**Live demo:** https://csv-analyst-agt.streamlit.app/ (paste your own OpenAI API key in the sidebar)
 
 ## What you can ask
 
@@ -84,7 +84,7 @@ keys, or run for more than 15 seconds.
 
 ## Run it on your computer
 
-You need Python 3.12 or newer.
+You need Python 3.13 (the version used for all tests; 3.12 should also work).
 
 ```bash
 python -m venv .venv
@@ -155,7 +155,7 @@ Detailed results are in `eval/results/final/` and `eval/results/stress/`.
 
 1. Push this folder to a GitHub repository. `.env` is ignored, so your keys are not uploaded.
 2. Go to share.streamlit.io → **New app** → choose the repository and `app.py`.
-3. In **Advanced settings**, choose Python 3.12. Leave **Secrets** empty: visitors use their own keys.
+3. In **Advanced settings**, choose Python 3.13. Leave **Secrets** empty: visitors use their own keys.
 4. In **Settings → Sharing**, make the app **Public**.
 
 More documents: `TEST_SCENARIOS.md` (5 test questions for the evaluator) and `TEST_PROTOCOL.md` (step-by-step checks).

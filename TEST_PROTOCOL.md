@@ -104,7 +104,7 @@ python eval/stress_test.py data/external/superstore.csv
 ## Step 5 — Deploy (15 min)
 
 1. Push the project to GitHub. Check that `.env` is **not** in the repository.
-2. On share.streamlit.io, create an app from the repository, with `app.py` and Python 3.12.
+2. On share.streamlit.io, create an app from the repository, with `app.py` and Python 3.13.
 3. Leave **Secrets** empty: visitors type their own keys in the sidebar.
 4. Make the app **Public** and open it in a private browser window.
 
@@ -128,7 +128,7 @@ wrong column, date filter, missing values, answer blocked by the validator, judg
 
 | Problem | Likely cause | What to do |
 |---|---|---|
-| The deployment does not start | A package version does not exist for that Python | Read the Streamlit log; use Python 3.12 |
+| The deployment does not start | A package version does not exist for that Python | Read the Streamlit log; use Python 3.13 |
 | Every code run fails online | The sandbox cannot start its process | Read the "Execution failed" message; try a simple question |
 | Many answers blocked by the validator | The number check is strict | Read `validation_feedback`; adjust `COMPOSER_SYSTEM` |
 | The router picks the wrong route | The prompt is ambiguous | Add one example per route to `ROUTER_SYSTEM` |
